@@ -16,4 +16,4 @@ const strategy = new Auth0Strategy(
 	}
 );
 
-export default strategy;
+module.exports = strategy;
