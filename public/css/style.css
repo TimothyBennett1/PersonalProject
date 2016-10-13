@@ -1,0 +1,97 @@
+header {
+    height: 35px;
+    background-color: #444444;
+    color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+input.search {
+    margin-top: 15px;
+}
+
+.help {
+    margin-top: 15px;
+}
+
+content.menu {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+content.menu li:hover {
+    background-color: #444444;
+}
+
+#help {
+    margin-top: 16px;
+}
+
+.posts {
+    /*border-top: 1px solid lightgrey;*/
+    font-size: .8em;
+}
+
+.posts h1 {
+    font-size: .4em;
+}
+
+#post-icons {
+    font-size: 1.2em;
+    background-color: lightgrey;
+    padding-top: 20px;
+}
+
+.postq {
+    padding-top: 10px
+}
+
+@media screen and (min-width: 64em) {
+    header {
+        padding-top: 45px;
+        padding-bottom: 45px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #27A9DF;
+    }
+    header div {
+        font-size: 1.3em;
+    }
+    #help {
+        margin-top: 35px;
+    }
+    content.menu {
+        align-content: flex-end;
+    }
+    .posts {
+        margin-top: 15px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        background-color: white;
+    }
+    content.menu {
+        padding-top: 20px;
+        padding-bottom: 80px;
+    }
+    #menu-large li {
+        margin-left: 5px;
+        margin-right: 5px;
+        background-color: #9FA6AD;
+        margin-top: 20px;
+    }
+    #menu-large li:hover {
+        background-color: #444444;
+    }
+    #menu-large li a {
+        color: white;
+    }
+    #qmenu li a {
+        color: white;
+    }
+    #qmenu li {
+        background-color: #9FA6AD;
+        margin-left: 5px;
+    }
+    #qmenu li:hover {
+      border-top: 5px solid #27A9DF;
+    }
+}
