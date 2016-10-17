@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
 const Users = new mongoose.Schema( {
-    firstName: {type: Stringtype: String},
+    firstName: {type: String},
     lastName: {type: String},
     email: {type: String},
-    creationDate: {type: Date}
+    creationDate: {type: Date},
     photo: {type: String},
     questions: [{
-      type:mongoose.Schema.types.ObjectId,
-      ref: 'Questions'
+      type:mongoose.Schema.Types.ObjectId,
+      ref: `Questions`
     }],
     answers: [{
-      type:mongoose.Schema.types.ObjectId,
-      ref: 'Answers'
+      type:mongoose.Schema.Types.ObjectId,
+      ref: `Answers`
     }]
 });
 

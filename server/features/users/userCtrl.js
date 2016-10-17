@@ -1,45 +1,77 @@
 const User = require('./User')
 
 module.exports = {
-    // Create An Account
-    createAccount(req, res) => {
-        new Users({
-            firstName: req.user._json.given_name,
-            lastName: req.user._json.family_name,
-            email: req.user._json.email,
-            creationDate: new Date(),
-            photo: req.user._json.picture
-        }).save((errs, newUser) => {
-            if (errs) {
-                return res.redirect('/#/error');
-            }
-            return res.redirect('/#/user');
-        });
-    },
+
+        getAuthUser(req, res) {
+            Users.findOne({
+                email: req.user._json.email
+            }, (err, user) => {
+                if (user) {
+                    Users.findById(user._id)
+                        .populate('questions')
+                        .populate('answers')
+                        .exec((error, currentUser) => {
+                            if (error) {
+                                return res.status(500).json(error);
+                            }
+                            return res.status(200).json(currentUser);
+                        });
+                } else if (err) {
+                    return res.status(500).json(err);
+                }
+            });
+        },
+
+        userExist(req, res) {
+            if (!req.user) throw new Error('user null');
+            Users.findOne({
+                email: req.user._json.email
+            }, (err, user) => {
+                if (err) return res.redirect('/#/error');
+                if (user) return res.redirect('/#/user');
+                next();
+            });
+
+        },
+
+        createAccount(req, res) {
+            new Users({
+                firstName: req.user._json.given_name,
+                lastName: req.user._json.family_name,
+                email: req.user._json.email,
+                creationDate: new Date(),
+                photo: req.user._json.picture
+            }).save((errs, newUser) => {
+                if (errs) {
+                    return res.redirect('/#/error');
+                }
+                return res.redirect('/#/user');
+            });
+        },
 
 
-            getUsers(req, res) {
-                Users.find((req.query))
-                    .exec((err, users) => {
-                        if (err) {
-                            return res.status(500).json(err);
-                        }
-                        return res.status(200).json(users);
-                    });
-            },
+        getUsers(req, res) {
+            Users.find((req.query))
+                .exec((err, users) => {
+                    if (err) {
+                        return res.status(500).json(err);
+                    }
+                    return res.status(200).json(users);
+                });
+        },
 
-            getThisUser(req, res) => {
-                Users.findById(req.params.id)
-                    .populate('questions')
-                    .populate('answers')
-                    .exec((err, users) => {
-                        if (err) {
-                            return res.status(500).json(err);
-                        }
-                        return res.status(200).json(users);
-                    });
-            }
-    },
+        getOneUser(req, res) {
+            Users.findById(req.params.id)
+                .populate('questions')
+                .populate('answers')
+                .exec((err, users) => {
+                    if (err) {
+                        return res.status(500).json(err);
+                    }
+                    return res.status(200).json(users);
+                });
+        },
+
 
     editUser(req, res) {
         if (!req.params.id) {
@@ -54,7 +86,7 @@ module.exports = {
             });
     },
 
-    deleteUser(req, res) => {
+    deleteUser(req, res) {
         if (!req.params.id) {
             return res.status(400).send('Find User To Delete')
         }
@@ -67,4 +99,4 @@ module.exports = {
             });
     }
 
-};
+ };

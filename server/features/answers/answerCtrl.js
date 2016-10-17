@@ -2,7 +2,7 @@ const Answer = require('./Answer')
 
 module.exports = {
 
-  postAnswer(req, res) => {
+  postAnswer(req, res)  {
     new Answer(req.body).save((err, answer) => {
       if (err) {
           return res.status(500).json(err);
@@ -11,7 +11,7 @@ module.exports = {
     });
   },
 
-  getAnswer(req, res) => {
+  getAnswers(req, res)  {
     Answers.find(req.query)
       .exec((err, answer) => {
         if (err) {
@@ -22,7 +22,26 @@ module.exports = {
    },
 
    getOneAnswer(req, res) {
-     Answers.findById()
+     Answers.findById(req.params.id)
+       .exec((err, answer) => {
+         if (err) {
+            return res.status(500).json(err);
+        }
+        return res.status(200).json(answer);
+     });
+   },
+
+   editAnswer(req, res) {
+       if (!req.params.id) {
+           return res.status(400).send('Not in User');
+       }
+       Answers.findByIdAndUpdate(req.params.id, req.body)
+           .exec((err, answer) => {
+               if (err) {
+                   return res.send(err);
+               }
+               return res.json(answer);
+           });
    }
 
 };

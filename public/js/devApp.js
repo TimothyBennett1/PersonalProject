@@ -5,7 +5,8 @@ angular.module("devFlow", ["ui.router"])
   $stateProvider
     .state("home", {
       url: "/",
-      templateUrl: "js/features/Questions/qTmpl.html"
+      templateUrl: "js/features/Questions/qTmpl.html",
+      controller: "qCtrl"
     })
     .state("ask", {
       url: "/ask",
