@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-const Answers = new mongoose.Schema( {
+const Answer = new mongoose.Schema( {
   answer: {type: String},
-  date: {type: Date},
-  votes: {type: Number},
-  postedBy: [{
-    type:mongoose.Schema.Types.ObjectId,
-    ref: 'Users'
-  }]
+  date: {type: Date, default: new Date()},
+  votes: {type: Number, default: 0},
+  postedBy: {
+      name: {type: String},
+      user_id: {type: String, required: true},
+      picture: {type: String}
+    }
 });
 
-module.exports = mongoose.model("Answers", Answers);
+module.exports = mongoose.model("Answer", Answer);

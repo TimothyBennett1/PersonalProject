@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="large-10 columns">
+    <h4>Remember to search for your question!</h4>
+    <p>I want everyone to get their question answered but, it doesnt always happen!</p>
+  </div>
+</div>
+<br>
+<br>
+<form method="post">
+  <div class="row">
+    <div class="large-1 columns">
+      <label for="middle-label" class="text-right middle">Title</label>
+    </div>
+    <input class="large-8 columns" id="middle-label" type="text" placeholder="What's your question? be specific" ng-model="question.question">
+  </div>
+  <br>
+  <div class="row">
+    <div class="large-10 columns">
+      <p>I know what you are thinking! Where am I going to put the code! If you post this question you will find out.</p>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="large-1 columns">
+      <label for="middle-label" class="text-right middle">Tags</label>
+    </div>
+      <input class="large-8 columns" id="middle-label" type="text" placeholder="At least one tag, max 5" ng-model="question.tags">
+  </div>
+    <br>
+    <br>
+  <div class="row">
+    <div class=" large-10 columns">
+      <button class="success button align-right" type="submit" name="button" ng-click="addQuestion(question)">Submit</button>
+    </div>
+  </div>
+</form>

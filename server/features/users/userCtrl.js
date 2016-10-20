@@ -1,4 +1,4 @@
-const User = require('./User')
+const Users = require('./User')
 
 module.exports = {
 
@@ -22,36 +22,40 @@ module.exports = {
             });
         },
 
-        userExist(req, res) {
-            if (!req.user) throw new Error('user null');
-            Users.findOne({
-                email: req.user._json.email
-            }, (err, user) => {
-                if (err) return res.redirect('/#/error');
-                if (user) return res.redirect('/#/user');
-                next();
-            });
-
-        },
+        userExists( req, res, next ) {
+		        if ( !req.user ) throw new Error( 'user null' );
+		          Users.findOne( { email: req.user._json.email }, ( err, user ) => {
+			             if ( err ) return res.redirect( '/#/error' );
+			             if ( user ) return res.redirect( '/#/user' );
+			             next();
+		        });
+	     },
 
         createAccount(req, res) {
             new Users({
                 firstName: req.user._json.given_name,
                 lastName: req.user._json.family_name,
+                name: req.user._json.name,
                 email: req.user._json.email,
                 creationDate: new Date(),
                 photo: req.user._json.picture
-            }).save((errs, newUser) => {
-                if (errs) {
-                    return res.redirect('/#/error');
+            }).save((err, user) => {
+                if (err) {
+                    return res.redirect('/callback');
                 }
-                return res.redirect('/#/user');
+                return res.redirect('/#/');
             });
         },
 
+        createUser( req, res ) {
+		        if ( req.user.identities[ 0 ].provider === "Auth0") {
+			           createAccount( req, res );
+		        }
+	     },
+
 
         getUsers(req, res) {
-            Users.find((req.query))
+            Users.find(req.query)
                 .exec((err, users) => {
                     if (err) {
                         return res.status(500).json(err);

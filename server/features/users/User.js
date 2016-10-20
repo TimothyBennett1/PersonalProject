@@ -6,6 +6,7 @@ const Users = new mongoose.Schema( {
     email: {type: String},
     creationDate: {type: Date},
     photo: {type: String},
+    auth0_userid: {type: String, required: true},
     questions: [{
       type:mongoose.Schema.Types.ObjectId,
       ref: `Questions`

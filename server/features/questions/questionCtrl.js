@@ -21,8 +21,21 @@ module.exports = {
       });
    },
 
+   getAllAnswersForQuestion(req, res) {
+     Questions.findById(req.params.id)
+       .populate('answers')
+       .exec((err, question) => {
+         if (err) {
+            return res.status(500).json(err);
+        }
+        return res.status(200).json(question);
+     });
+
+   },
+
    getOneQuestion(req, res) {
      Questions.findById(req.params.id)
+     .populate('answers')
        .exec((err, question) => {
          if (err) {
             return res.status(500).json(err);
@@ -34,7 +47,7 @@ module.exports = {
 
    editQuestion(req, res) {
        if (!req.params.id) {
-           return res.status(400).send('Not in User');
+           return res.status(400).send('Not in question');
        }
        Questions.findByIdAndUpdate(req.params.id, req.body)
            .exec((err, question) => {
@@ -43,6 +56,15 @@ module.exports = {
                }
                return res.json(question);
            });
-   }
+   },
+
+   putAnswer(req, res) {
+     new Answers(req.body).save((err, answer) => {
+       if (err) {
+           return res.status(500).json(err);
+       }
+       return res.status(200).json(question);
+     });
+    }
 
 };

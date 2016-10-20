@@ -1,0 +1,35 @@
+<div class="row">
+    <ul class="menu align-right hide-for-small-only" id="qmenu">
+        <li>
+            <a href="#">Hot</a>
+        </li>
+        <li>
+            <a href="#">Top</a>
+        </li>
+        <li>
+            <a href="#">Week</a>
+        </li>
+    </ul>
+</div>
+<section class="row posts" ng-repeat="question in questions">
+    <div class="small-3 columns show-for-small-only" id="post-icons">
+        0
+        <i class="fi-mountains"></i>
+        <br>
+        0
+        <i class="fi-comment"></i>
+    </div>
+    <div>
+      <div class="row medium-up-3 columns hide-for-small-only align-middle">
+        <i class="fi-mountains button" id="plus"></i>
+        <p id="count">0</p>
+        <i class="fi-mountains button" id="minus"></i>
+      </div>
+    </div>
+    <div class="large-offset-1 small-8 columns postq">
+        <h4>
+            <a ui-sref="question({id: question._id})">{{question.question}}</a>
+        </h4>
+        <p>43</p>
+    </div>
+</section>

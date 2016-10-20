@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 header {
     height: 35px;
     background-color: #444444;
@@ -5,6 +9,7 @@ header {
     padding-top: 25px;
     padding-bottom: 25px;
 }
+
 
 input.search {
     margin-top: 15px;
@@ -15,8 +20,9 @@ input.search {
 }
 
 content.menu {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    background-color: white;
+    padding-top: 19px;
+    padding-bottom: 19px;
 }
 
 content.menu li:hover {
@@ -47,11 +53,14 @@ content.menu li:hover {
 }
 
 @media screen and (min-width: 64em) {
+    body {
+      background-color: #D1D5DE;
+    }
     header {
         padding-top: 45px;
         padding-bottom: 45px;
         margin-bottom: 20px;
-        border-bottom: 2px solid #27A9DF;
+        border-bottom: 2px solid #26A3D6;
     }
     header div {
         font-size: 1.3em;
@@ -66,32 +75,57 @@ content.menu li:hover {
         margin-top: 15px;
         padding-top: 25px;
         padding-bottom: 25px;
-        background-color: white;
+        background-color: #E7E5DF;
     }
     content.menu {
+        background-color: #E7E5DF;
         padding-top: 20px;
         padding-bottom: 80px;
     }
     #menu-large li {
         margin-left: 5px;
         margin-right: 5px;
-        background-color: #9FA6AD;
+        background-color: #26A3D6;
         margin-top: 20px;
     }
     #menu-large li:hover {
         background-color: #444444;
     }
     #menu-large li a {
-        color: white;
+        color: #E7E5DF;
     }
     #qmenu li a {
-        color: white;
+        color: #E7E5DF;
     }
     #qmenu li {
-        background-color: #9FA6AD;
+        background-color: #444444;
         margin-left: 5px;
+        border-top: 5px solid #E7E5DF;
     }
     #qmenu li:hover {
-      border-top: 5px solid #27A9DF;
+      border-top: 5px solid #26A3D6;
+    }
+    #minus {
+      transform: rotate(180deg);
+    }
+    i.button {
+      background-color: #26A3D6;
+    }
+    ul.login {
+      color: #26A3D6;
+    }
+    #editor {
+      margin-top: 15px;
+      height: 100%;
+      width: 100%;
+      border: 5px solid #444444;
+    }
+    #ace-holder {
+      height: 200px;
+      width: 100%;
+      position: relative;
+    }
+    #question-holder {
+      border-bottom: 2px solid hsla(0, 0%, 27%, .2);
     }
 }

@@ -10,14 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-jwt": "^0.1.6",
+    "angular-lock": "^1.0.3",
+    "auth0-lock": "^10.4.0",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
-    "install": "^0.8.1",
-    "mongoose": "^4.6.3",
-    "npm": "^3.10.8",
-    "passport": "^0.3.2",
-    "passport-auth0": "^0.5.2"
+    "mongoose": "^4.6.3"
   }
 }

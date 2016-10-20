@@ -1,18 +1,26 @@
-const Answer = require('./Answer')
+const Answer = require('./Answer');
+const Question = require('./../questions/Question');
 
 module.exports = {
 
   postAnswer(req, res)  {
-    new Answer(req.body).save((err, answer) => {
+    Answer.create(req.body, (err, answer) =>{
       if (err) {
           return res.status(500).json(err);
       }
-      return res.status(200).json(answer);
+       Question.findByIdAndUpdate(req.query.question_id, {$push: {answers: answer._id }},{safe: true, upsert:true, new:true}, (error, response) => {
+         if(error){
+           return res.status(500).json(error);
+         }
+         else {
+           return res.status(200).json(response);
+         }
+       });
     });
   },
 
   getAnswers(req, res)  {
-    Answers.find(req.query)
+    Answer.find()
       .exec((err, answer) => {
         if (err) {
             return res.status(500).json(err);
@@ -22,7 +30,7 @@ module.exports = {
    },
 
    getOneAnswer(req, res) {
-     Answers.findById(req.params.id)
+     Answer.findById(req.params.id)
        .exec((err, answer) => {
          if (err) {
             return res.status(500).json(err);
@@ -35,7 +43,7 @@ module.exports = {
        if (!req.params.id) {
            return res.status(400).send('Not in User');
        }
-       Answers.findByIdAndUpdate(req.params.id, req.body)
+       Answer.findByIdAndUpdate(req.params.id, req.body)
            .exec((err, answer) => {
                if (err) {
                    return res.send(err);
