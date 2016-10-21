@@ -7,6 +7,7 @@ angular.module("devFlow")
 
   $scope.addQuestion = (question) => {
     question.postedBy = {
+      nickname: currentUser.nickname,
       name: currentUser.name,
       user_id: currentUser.user_id,
       picture: currentUser.picture

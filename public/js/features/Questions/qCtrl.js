@@ -5,6 +5,7 @@ angular.module("devFlow")
 
         $rootScope.$on("userProfileSet", (event, userProfile) => {
             profile = userProfile;
+            console.log(profile)
         })
 
         $scope.question = {};

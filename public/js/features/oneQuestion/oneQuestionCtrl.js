@@ -7,8 +7,7 @@ angular.module('devFlow')
 
         var editor = ace.edit("editor");
         editor.setTheme("ace/theme/monokai");
-        editor.getSession().setMode("ace/mode/javascript");
-        editor.resize()
+        editor.getSession().setMode("ace/mode/javascript")
 
 
 
@@ -17,7 +16,6 @@ angular.module('devFlow')
 
         function getQuestion(id) {
             devSvc.getQuestion(id).then((results) => {
-                console.log("hi", results)
                 $scope.oneQuestion = results;
                 $scope.Answers = results.answers;
             })
@@ -27,9 +25,18 @@ angular.module('devFlow')
             devSvc.postAnswer(answer, question_id)
                 .then((answer) => {
                     $scope.answer = answer;
-                    getAnswers( question_id );
+                    getQuestion($stateParams.id);
                 })
         }
 
-
-    });
+    })
+    .directive("oneQuestionDirective", function(devSvc) {
+      return {
+        scope: {
+          answer: '=',
+          date: '='
+        },
+        restrict: 'E',
+        templateUrl: './js/features/oneQuestion/answer/answer-dir-tmpl.html'
+      }
+    })

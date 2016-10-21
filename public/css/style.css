@@ -72,10 +72,11 @@ content.menu li:hover {
         align-content: flex-end;
     }
     .posts {
-        margin-top: 15px;
+        margin-top: 25px;
         padding-top: 25px;
         padding-bottom: 25px;
         background-color: #E7E5DF;
+        border-bottom: 2px solid hsla(0, 0%, 27%, .2);
     }
     content.menu {
         background-color: #E7E5DF;
@@ -89,7 +90,7 @@ content.menu li:hover {
         margin-top: 20px;
     }
     #menu-large li:hover {
-        background-color: #444444;
+        background-color: hsla(0, 0%, 27%, 1);
     }
     #menu-large li a {
         color: #E7E5DF;
@@ -103,29 +104,36 @@ content.menu li:hover {
         border-top: 5px solid #E7E5DF;
     }
     #qmenu li:hover {
-      border-top: 5px solid #26A3D6;
-    }
-    #minus {
-      transform: rotate(180deg);
+      border-top: 5px solid #28A5D9;
     }
     i.button {
-      background-color: #26A3D6;
+      background-color: #28A5D9;
     }
     ul.login {
       color: #26A3D6;
     }
     #editor {
       margin-top: 15px;
-      height: 100%;
+      height: 200px;
       width: 100%;
       border: 5px solid #444444;
     }
-    #ace-holder {
-      height: 200px;
-      width: 100%;
-      position: relative;
+    .upvote {
+      border-right: 2px solid hsla(0, 0%, 27%, .2);
     }
-    #question-holder {
-      border-bottom: 2px solid hsla(0, 0%, 27%, .2);
+    .post-answer {
+      margin-top: 40px;
+    }
+    footer {
+      margin-top: 40px;
+      border-top: 2px solid #26A3D6;
+      background-color: #444444;
+    }
+    footer ul.menu {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    footer ul li a {
+      color: white;
     }
 }

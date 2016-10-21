@@ -5,6 +5,7 @@ const Answer = new mongoose.Schema( {
   date: {type: Date, default: new Date()},
   votes: {type: Number, default: 0},
   postedBy: {
+      nickname: {type: String},
       name: {type: String},
       user_id: {type: String, required: true},
       picture: {type: String}

@@ -20,7 +20,7 @@ angular.module("devFlow")
             this.getAnswers = function(question_id) {
                 return $http.get(baseUrl + '/api/questions?question_id=' + question_id ).then((res) => {
                     return res.data;
-                    // console.log(res.data);
+                    console.log(res.data);
                 })
             },
 
@@ -28,6 +28,7 @@ angular.module("devFlow")
                 const currentUser = JSON.parse(localStorage.getItem('profile'));
 
                 answer.postedBy = {
+                  nickname: currentUser.nickname,
                   name: currentUser.name,
                   user_id: currentUser.user_id,
                   picture: currentUser.picture
