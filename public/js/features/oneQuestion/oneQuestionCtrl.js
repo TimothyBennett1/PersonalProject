@@ -5,12 +5,6 @@ angular.module('devFlow')
 
         console.log('stateParams', $stateParams)
 
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/monokai");
-        editor.getSession().setMode("ace/mode/javascript")
-
-
-
         $scope.getQuestion = getQuestion($stateParams.id)
 
 

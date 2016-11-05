@@ -1,7 +1,9 @@
 const Questions = require('./Question')
 
-module.exports = {
 
+
+module.exports = {
+  
   postQuestion(req, res) {
     new Questions(req.body).save((err, question) => {
       if (err) {

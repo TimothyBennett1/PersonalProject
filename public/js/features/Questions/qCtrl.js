@@ -10,6 +10,7 @@ angular.module("devFlow")
 
         $scope.question = {};
 
+
         function getQuestions() {
             devSvc.getQuestions().then((results) => {
                 $scope.questions = results;

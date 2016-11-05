@@ -1,18 +1,11 @@
-$(document).foundation()
-// $('#search').foundation('close');
-// $('#signIn').foundation('open');
+function openNav() {
+  document.getElementById("sideNav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
 
-
-
-var counter = 0;
-
-$("#plus").click(function(){
-  counter++;
-  console.log(counter);
-  $("#count").text(counter);
-});
-
-$("#minus").click(function(){
-  counter--;
-  $("#count").text(counter);
-});
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0px";
+  document.getElementById("main").style.marginLeft = "0px";
+  document.body.style.backgroundColor = "hsla(210, 13%, 94%, 1)";
+}

@@ -17,6 +17,7 @@ angular.module("devFlow")
           console.log(question);
           $scope.question = {};
         })
+        devSvc.getQuestions();
   }
 
 

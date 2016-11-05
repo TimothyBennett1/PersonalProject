@@ -1,34 +1,31 @@
-<div class="row">
-    <ul class="menu align-right hide-for-small-only" id="qmenu">
-        <li>
-            <a href="#">Hot</a>
-        </li>
-        <li>
-            <a href="#">Top</a>
-        </li>
-        <li>
-            <a href="#">Week</a>
-        </li>
-    </ul>
+<div class="questions">
+    <nav class="sort">
+        <button>
+            <p>Hot</p>
+        </button>
+        <button>
+            <p>Top</p>
+        </button>
+        <button>
+            <p>Week</p>
+        </button>
+    </nav>
+    <section ng-repeat="question in questions">
+        <div>
+            <h6>Answers</h6>
+        </div>
+        <div>
+            <h6>Views</h6>
+        </div>
+        <div>
+            <h5>
+                <a ui-sref="question({id: question._id})">{{question.question}}</a>
+            </h5>
+            <br>
+            <button>{{question.tags}}</button>
+        </div>
+        <div>
+            <p>asked {{question.date}} by {{question.postedBy.nickname}}</p>
+        </div>
+    </section>
 </div>
-<section class="row posts" ng-repeat="question in questions">
-    <div class="small-3 columns show-for-small-only" id="post-icons">
-        0
-        <i class="fi-mountains"></i>
-        <br>
-        0
-        <i class="fi-comment"></i>
-    </div>
-    <div>
-      <div class="column hide-for-small-only align-middle upvote">
-        <i class="fi-like button"></i>
-        <br>
-        <i class="fi-dislike button"></i>
-      </div>
-    </div>
-    <div class="large-9 columns postq">
-        <h4>
-            <a ui-sref="question({id: question._id})">{{question.question}}</a>
-        </h4>
-    </div>
-</section>

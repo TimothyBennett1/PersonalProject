@@ -1,4 +1,4 @@
-  angular.module("devFlow", ["angular-jwt", 'auth0.lock', 'ui.router'])
+  angular.module("devFlow", ["angular-jwt", 'auth0.lock', 'ui.router', 'ui.ace'])
       .config(($stateProvider, $urlRouterProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider) => {
 
           $urlRouterProvider.otherwise("/");

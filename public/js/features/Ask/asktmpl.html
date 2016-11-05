@@ -1,37 +1,33 @@
-
-<div class="row">
-  <div class="large-10 columns">
+<div class="ask">
+  <div>
     <h4>Remember to search for your question!</h4>
+    <br>
     <p>I want everyone to get their question answered but, it doesnt always happen!</p>
   </div>
+  <form method="post">
+    <div class="title">
+      <div>
+        <label>Title</label>
+      </div>
+      <input type="text" placeholder="What's your question? be specific" ng-model="question.question">
+    </div>
+    <div class="editor-wrapper">
+      <div class="editor" ui-ace="{
+        useWrapMode : true,
+        mode: 'javascript',
+        theme:'idle_fingers',
+        onLoad: aceLoaded,
+        onChange: aceChanged
+      }"></div>
+    </div>
+    <div>
+      <label>Tags</label>
+    </div>
+    <div>
+      <input type="text" placeholder="At least one tag, max 5" ng-model="question.tags">
+    </div>
+    <div>
+      <button type="submit" name="button" ng-click="addQuestion(question)" ui-sref="home">Submit</button>
+    </div>
+  </form>
 </div>
-<br>
-<br>
-<form method="post">
-  <div class="row">
-    <div class="large-1 columns">
-      <label for="middle-label" class="text-right middle">Title</label>
-    </div>
-    <input class="large-8 columns" id="middle-label" type="text" placeholder="What's your question? be specific" ng-model="question.question">
-  </div>
-  <br>
-  <div class="row">
-    <div class="large-10 columns">
-      <h5>I know what you are thinking! Where am I going to put the code! If you post this question you will find out.</h5>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="large-1 columns">
-      <label for="middle-label" class="text-right middle">Tags</label>
-    </div>
-      <input class="large-8 columns" id="middle-label" type="text" placeholder="At least one tag, max 5" ng-model="question.tags">
-  </div>
-    <br>
-    <br>
-  <div class="row">
-    <div class=" large-10 columns">
-      <button class="success button align-right" type="submit" name="button" ng-click="addQuestion(question)" ui-sref="home">Submit</button>
-    </div>
-  </div>
-</form>

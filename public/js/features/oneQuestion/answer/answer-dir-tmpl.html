@@ -1,13 +1,19 @@
-<div class="large-1 columns upvote">
+<div class="align-middle large-1 columns">
     <i class="fi-like button"></i>
     <br>
     <i class="fi-dislike button"></i>
 </div>
 <div>
-    <div class=" large-12 columns postq">
+    <div class="align-content large-11 columns">
         <h5>{{answer.answer}}<h5>
-                <div>
-                    <div id="editor" class="large-12 columns">function foo(items) { var x = "All this is syntax highlighted"; return x; }</div>
+                <div class="editor-container">
+                    <div class="editor" ui-ace="{
+                      useWrapMode : true,
+                      mode: 'javascript',
+                      theme:'idle_fingers',
+                      onLoad: aceLoaded,
+                      onChange: aceChanged
+                      }"></div>
                 </div>
             </div>
         </div>
