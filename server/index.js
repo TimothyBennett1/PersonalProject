@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const sessionConfig = require('./config/config');
 const app = express();
-const port = 4000;
+const port = sessionConfig.port;
 const mongoUri = 'mongodb://localhost:27017/devFlow';
 
 app.use(json());
