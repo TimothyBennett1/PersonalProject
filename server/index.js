@@ -1,5 +1,5 @@
 const express = require('express');
-const {json} = require('body-parser');
+const bodyParser = require('body-parser').json;
 const mongoose = require('mongoose');
 const session = require('express-session');
 const sessionConfig = require('./config/config');
@@ -7,7 +7,7 @@ const app = express();
 const port = sessionConfig.port;
 const mongoUri = 'mongodb://localhost:27017/devFlow';
 
-app.use(json());
+app.use(bodyParser.json());
 app.use(express.static(`./public`))
 app.use(express.static(`${__dirname}/../node_modules`))
 app.use(session(sessionConfig.session))
