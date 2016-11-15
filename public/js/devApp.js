@@ -30,7 +30,7 @@
               .state('question', {
                   url: '/questions/:id',
                   controller: 'oneQuestion',
-                  templateUrl: './js/features/oneQuestion/questionTmpl.html'
+                  templateUrl: './js/features/oneQuestion/oneQuestionTmpl.html'
               })
               .state('login', {
                   url: "/login",

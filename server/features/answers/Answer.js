@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Answer = new mongoose.Schema( {
   answer: {type: String},
+  code: {type: String},
   date: {type: Date, default: new Date()},
   votes: {type: Number, default: 0},
   postedBy: {

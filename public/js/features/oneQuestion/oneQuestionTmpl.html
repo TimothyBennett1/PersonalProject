@@ -1,0 +1,11 @@
+<div class="one-question">
+    <span>{{oneQuestion.question}}</span>
+    <div class="editor" ui-ace="questionAce"></div>
+</div>
+<one-question-directive ng-repeat="answer in Answers" answer="answer" date="date"></one-question-directive>
+<div class="user-answer">
+    <span>Your Answer</span>
+    <input type="text" ng-model="answer.answer">
+    <div class="editor" ng-model="answer.code" ui-ace="answerThisAce"></div>
+    <button type="submit" ng-click="postAnswer(answer, oneQuestion._id)">Answer</button>
+</div>

@@ -1,11 +1,14 @@
 angular.module('devFlow')
     .factory('authService', authService);
 
-authService.$inject = ['$rootScope', 'lock', 'authManager'];
+authService.$inject = ['$rootScope', 'lock', 'authManager', 'devSvc'];
 
 function authService($rootScope, lock, authManager) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
+
+    
+
 
     function login() {
         lock.show();

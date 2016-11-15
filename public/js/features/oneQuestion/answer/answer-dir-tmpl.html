@@ -1,20 +1,13 @@
-<div class="align-middle large-1 columns">
-    <i class="fi-like button"></i>
-    <br>
-    <i class="fi-dislike button"></i>
-</div>
-<div>
-    <div class="align-content large-11 columns">
-        <h5>{{answer.answer}}<h5>
-                <div class="editor-container">
-                    <div class="editor" ui-ace="{
-                      useWrapMode : true,
-                      mode: 'javascript',
-                      theme:'idle_fingers',
-                      onLoad: aceLoaded,
-                      onChange: aceChanged
-                      }"></div>
-                </div>
-            </div>
+<div class="answer">
+    <div class="likes">
+        <i class="fi-check button"></i>
+        <span>{{answer.votes}}</span>
+        <i class="fi-x button"></i>
+    </div>
+    <div class="answer-details">
+        <span>{{answer.answer}}</span>
+        <div class="editor-container">
+            <div class="editor" ui-ace="answerAce"></div>
         </div>
     </div>
+</div>

@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 const Question = new mongoose.Schema( {
   question: {type: String},
+  code: {type: String},
   tags: {type: String},
   date: {type: Date, default: new Date()},
+  views: {type: Number, default: 0},
   postedBy: {
     nickname: {type: String},
     name: {type: String},

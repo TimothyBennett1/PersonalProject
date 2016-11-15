@@ -1,36 +1,64 @@
 angular.module('devFlow')
     .controller("oneQuestion", function($scope, devSvc, $stateParams) {
 
-        $scope.test = "test"
+        $scope.getQuestion = getQuestion($stateParams.id);
 
-        console.log('stateParams', $stateParams)
+        $scope.questionAce = {
+            useWrapMode: true,
+            mode: 'javascript',
+            theme: 'idle_fingers',
+            blockScrolling: Infinity,
+            onLoad: function(_editor) {
+                $scope.editor = _editor
+            },
+            onChange: function() {
 
-        $scope.getQuestion = getQuestion($stateParams.id)
+            }
+        }
+
+        $scope.answerThisAce = {
+            useWrapMode: true,
+            mode: 'javascript',
+            theme: 'idle_fingers',
+            blockScrolling: Infinity,
+            onLoad: function(_editor) {
+
+            },
+            onChange: function() {
+
+            }
+        }
 
 
         function getQuestion(id) {
-            devSvc.getQuestion(id).then((results) => {
-                $scope.oneQuestion = results;
-                $scope.Answers = results.answers;
-            })
+            devSvc.getQuestion(id)
+                .then((results) => {
+                    $scope.oneQuestion = results;
+                    $scope.editor.setValue($scope.oneQuestion.code);
+                    $scope.Answers = results.answers;
+                })
         }
 
-        $scope.postAnswer = (answer, question_id) => {
-            devSvc.postAnswer(answer, question_id)
+        $scope.postAnswer = (answer, id) => {
+            devSvc.postAnswer(answer, id)
                 .then((answer) => {
                     $scope.answer = answer;
                     getQuestion($stateParams.id);
                 })
         }
 
+        
+
     })
-    .directive("oneQuestionDirective", function(devSvc) {
-      return {
+
+.directive("oneQuestionDirective", function(devSvc) {
+    return {
         scope: {
-          answer: '=',
-          date: '='
+            answer: '=',
+            date: '='
         },
         restrict: 'E',
-        templateUrl: './js/features/oneQuestion/answer/answer-dir-tmpl.html'
-      }
-    })
+        templateUrl: './js/features/oneQuestion/answer/answer-dir-tmpl.html',
+        controller: 'answerDirCtrl'
+    }
+})

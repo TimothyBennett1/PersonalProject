@@ -1,31 +1,47 @@
-<div class="questions">
-    <nav class="sort">
-        <button>
-            <p>Hot</p>
-        </button>
-        <button>
-            <p>Top</p>
-        </button>
-        <button>
-            <p>Week</p>
-        </button>
-    </nav>
-    <section ng-repeat="question in questions">
-        <div>
-            <h6>Answers</h6>
-        </div>
-        <div>
-            <h6>Views</h6>
-        </div>
-        <div>
-            <h5>
-                <a ui-sref="question({id: question._id})">{{question.question}}</a>
-            </h5>
-            <br>
-            <button>{{question.tags}}</button>
-        </div>
-        <div>
-            <p>asked {{question.date}} by {{question.postedBy.nickname}}</p>
-        </div>
-    </section>
+<nav class="sort">
+    <input type="search" placeholder="search the questions" ng-model="search">
+    <button>
+        <p>Hot</p>
+    </button>
+    <button>
+        <p>Top</p>
+    </button>
+    <button>
+        <p>Week</p>
+    </button>
+</nav>
+<div class="details" ng-repeat="question in questions | filter: search">
+    <div class="votes-small">
+      <div class="count">
+        <span>{{question.answers.length}}</span>
+        <span>
+          <i class="fi-comment"></i>
+        </span>
+      </div>
+      <div class="count">
+        <span>{{question.views}}</span>
+        <span>
+          <i class="fi-mountains"></i>
+        </span>
+      </div>
+    </div>
+    <div class="votes-large" id="votes-large">
+      <div class="answer-count" id="answer-count">
+        <span>{{question.answers.length}}</span>
+        <span>Answers</span>
+      </div>
+      <div class="view-count">
+        <span>{{question.views}}</span>
+        <span>Views</span>
+      </div>
+    </div>
+    <div class="question">
+        <a ng-click="postCount(question._id)" ui-sref="question({id: question._id})">{{question.question}}</a>
+      <div class="question-tags">
+        <span class="tags">{{question.tags}}</span>
+      </div>
+      <div class="name">
+        <span>{{question.postedBy.nickname}}</span>
+      </div>
+    </div>
 </div>

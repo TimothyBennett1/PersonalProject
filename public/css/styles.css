@@ -1,0 +1,451 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: hsla(210, 13%, 94%, 1);
+}
+
+button:focus {
+    outline: 0;
+}
+
+
+/*Header and Nav*/
+
+header {
+    display: flex;
+    height: 75px;
+    width: 100%;
+    background-color: hsla(0, 0%, 27%, 1);
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 3px solid hsla(198, 76%, 51%, 1);
+}
+
+header img {
+    padding-left: 20px;
+    height: 40px;
+    width: auto;
+    margin-right: 20px;
+}
+
+header button {
+    padding-right: 30px;
+    border-style: none;
+    background-color: hsla(0, 0%, 27%, 1);
+}
+
+.fi-list {
+    font-size: 25px;
+}
+
+.sideNav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 27%, 1);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sideNav button {
+    font-size: 1.5em;
+    align-self: flex-end;
+    margin-bottom: 25px;
+    color: hsla(210, 13%, 94%, 1);
+}
+
+.sideNav button:hover {
+    color: hsla(198, 76%, 51%, 1);
+}
+
+.sideNav a {
+    color: hsla(210, 13%, 94%, 1);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.sideNav a:hover {
+    color: hsla(198, 76%, 51%, 1);
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px;
+    width: 100%;
+    border-bottom: 3px solid hsla(198, 76%, 51%, 1);
+}
+
+nav button {
+    color: hsla(210, 13%, 94%, 1);
+    width: 80px;
+    height: 35px;
+    border-style: none;
+    border-radius: 1px;
+    background-color: hsla(198, 76%, 51%, 1);
+    box-shadow: 0.5px 0.5px 0.5px hsla(0, 0%, 27%, 1);
+}
+
+nav button:hover {
+    background-color: hsla(0, 0%, 27%, 1);
+}
+
+nav button a {
+    color: hsla(210, 13%, 94%, 1);
+    text-decoration: none;
+}
+
+
+/*Questions*/
+
+nav.sort {
+    display: none;
+}
+
+.details {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    height: 130px;
+    border-bottom: 1px solid hsla(0, 2%, 49%, 0.4);
+    padding: 15px auto;
+}
+
+.votes-small {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    align-items: center;
+    background-color: hsla(0, 2%, 49%, 1);
+    margin-right: 10px;
+}
+
+.count {
+    display: flex;
+    flex-direction: column;
+}
+
+.votes-large {
+    display: none;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    font-size: 0.8rem;
+}
+
+.question a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #000000;
+}
+
+.tags {
+    padding: 4px 6px;
+    background-color: hsla(0, 0%, 27%, 0.5);
+    color: hsla(210, 13%, 94%, 1);
+}
+
+
+/*Ask*/
+
+.ask {
+    width: 90%;
+    display: flex;
+    margin: 20px auto;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+div.ask input[type=text] {
+    width: 100%;
+    height: 1.8rem;
+    border: 1px solid hsla(198, 76%, 51%, 1);
+    border-radius: 2px;
+    padding-left: 10px;
+}
+
+.ask button {
+    width: 20%;
+    height: 40px;
+    border-radius: 2px;
+    border-style: none;
+    color: hsla(210, 13%, 94%, 1);
+    background-color: hsla(142, 69%, 54%, 1);
+}
+
+.ask label {
+    font-size: 1.2rem;
+}
+
+.title {
+    widows: 100%;
+    justify-content: space-around;
+}
+
+.links {
+    display: none;
+}
+
+div.likes i.fi-check:hover {
+  color: hsla(142, 69%, 54%, 1);
+}
+
+div.likes i.fi-x:hover {
+  color: hsla(8, 82%, 59%, 1);
+}
+
+
+/*one-question*/
+
+.one-question {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 30px auto;
+    height: 250px;
+}
+
+.one-question span {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.user-answer input[type=text] {
+    width: 99%;
+    height: 1.8rem;
+    border: 1px solid hsla(198, 76%, 51%, 1);
+    border-radius: 2px;
+    padding-left: 10px;
+}
+
+.likes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+
+.answer {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.answer span {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.answer-details {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.user-answer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: space-between;
+    margin: 20px auto;
+    height: 400px;
+}
+
+.user-answer button {
+    width: 20%;
+    height: 40px;
+    border-radius: 2px;
+    border-style: none;
+    color: hsla(210, 13%, 94%, 1);
+    background-color: hsla(142, 69%, 54%, 1);
+}
+
+.likes i {
+    font-size: 1.6rem;
+}
+
+
+/*editor*/
+
+.editor {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+
+/*Footer*/
+
+footer {
+    width: 100%;
+    background-color: hsla(0, 0%, 27%, 1);
+    border-top: 3px solid hsla(198, 76%, 51%, 1);
+}
+
+footer nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px;
+}
+
+footer nav a {
+    color: hsla(210, 13%, 94%, 1);
+    text-decoration: none;
+}
+
+
+/*Media Queries*/
+
+@media screen and (min-width: 770px) {
+    header {
+        justify-content: space-between;
+        height: 80px;
+    }
+    nav.top-nav {
+        justify-content: flex-end;
+        border: 0px;
+        width: 95%;
+        height: 100px;
+        margin: 0 auto;
+    }
+    nav button {
+        margin-left: 10px;
+    }
+    nav.sort {
+        display: flex;
+        width: 95%;
+        justify-content: flex-end;
+        border: 0;
+        margin-bottom: 30px;
+    }
+    nav.sort input {
+        align-self: flex-end;
+        width: 30%;
+        height: 30px;
+        border: 2px solid hsla(198, 76%, 51%, 1);
+    }
+    nav.sort button {
+        align-self: flex-end;
+        border-radius: 0px;
+        background-color: hsla(0, 0%, 27%, 1);
+        border-top: 5px solid hsla(210, 13%, 94%, 1);
+        box-shadow: 0px 0px 0px hsla(0, 0%, 27%, 1);
+    }
+    nav.sort button:hover {
+        border-top: 5px solid hsla(198, 76%, 51%, 1);
+    }
+    .main {
+        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        justify-content: space-around;
+    }
+    .view {
+        flex: 1;
+        width: 90%;
+    }
+    .links {
+        display: flex;
+        flex-direction: column;
+        width: 15%;
+        height: 300px;
+        padding-left: 10px;
+        justify-content: space-around;
+        background-color: hsla(0, 0%, 27%, 0.3);
+        border: 4px solid hsla(198, 76%, 51%, 1);
+    }
+    .links a {
+        color: #000000;
+        font-size: 1.3rem;
+        text-decoration: none;
+    }
+    .links a:hover {
+        color: hsla(210, 13%, 94%, 1);
+    }
+    .details {
+        display: flex;
+        width: 90%;
+        height: 70px;
+        margin: 10px auto;
+        justify-content: flex-start;
+        padding-bottom: 15px;
+    }
+    .votes-small {
+        display: none;
+    }
+    .votes-large {
+        width: 25%;
+        display: flex;
+        justify-content: space-around;
+        font-size: 1rem;
+        background-color: hsla(210, 13%, 94%, 1);
+        margin-right: 20px;
+        align-items: center;
+    }
+    .answer-count {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .view-count {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .question {
+        display: flex;
+        justify-content: space-between;
+        width: 100%
+    }
+    .question-tags {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        flex: 1;
+        width: 80%;
+    }
+    .tags {
+        align-self: flex-start;
+    }
+    .name {
+        align-self: flex-end;
+    }
+    .ask {
+        width: 60%;
+        font-size: 1.2rem;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+    .ask label {
+        font-size: 1.8rem;
+    }
+    nav.footer-nav {
+        border-bottom: 0;
+    }
+}

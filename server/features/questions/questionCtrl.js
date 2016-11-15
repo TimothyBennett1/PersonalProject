@@ -3,7 +3,7 @@ const Questions = require('./Question')
 
 
 module.exports = {
-  
+
   postQuestion(req, res) {
     new Questions(req.body).save((err, question) => {
       if (err) {
@@ -48,16 +48,12 @@ module.exports = {
    },
 
    editQuestion(req, res) {
-       if (!req.params.id) {
-           return res.status(400).send('Not in question');
-       }
-       Questions.findByIdAndUpdate(req.params.id, req.body)
-           .exec((err, question) => {
-               if (err) {
-                   return res.send(err);
-               }
-               return res.json(question);
-           });
+       Questions.findByIdAndUpdate(req.params.id, { $set: req.body, $inc: { views: 1} }, {multi: false}, (err, question) => {
+         if (err) {
+             return res.send(err);
+         }
+         return res.json(question);
+       })
    },
 
    putAnswer(req, res) {

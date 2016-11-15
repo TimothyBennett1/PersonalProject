@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="devFlow">
     <head>
-        <!-- <link rel="stylesheet" href="./css/style.css"> -->
-        <!-- <link rel="stylesheet" href="./css/foundation.css"> -->
         <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/betterStyle.css">
+        <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="foundation-icons/foundation-icons.css">
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="utf-8">
         <title>DevFlow</title>
@@ -19,6 +17,7 @@
                     <i class="fi-list"></i>
                 </button>
                 <div id="sideNav" class="sideNav">
+                    <button onClick="closeNav()"><i class="fi-x"></i></button>
                     <ul>
                         <li ng-if="!isAuthenticated">
                             <a ng-click="authService.login()">Sign In</a>
@@ -26,13 +25,10 @@
                         <li ng-if="isAuthenticated">
                             <a ng-click="authService.logout()">Sign Out</a>
                         </li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Help</a></li>
                     </ul>
                 </div>
             </header>
-            <nav>
+            <nav class="top-nav">
                 <button ui-sref="home">
                     <p>Questions</p>
                 </button>
@@ -46,15 +42,33 @@
                     <p>Ask</p>
                 </button>
             </nav>
-            <div>
-                <ui-view onClick="closeNav()"></ui-view>
+            <div class="main">
+                <ui-view class="view"></ui-view>
+                <div class="links">
+                    <div>
+                        <a href="http://class.devmountain.com">Class</a>
+                        <p>Keep up with the work</p>
+                    </div>
+                    <div>
+                        <a href="http://q.devmountain.com/">The Q</a>
+                        <p>Get a mentors help</p>
+                    </div>
+                    <div>
+                        <a href="http://surveys.devmountain.com/">Surveys</a>
+                        <p>Do the surveys</p>
+                    </div>
+                    <div>
+                        <a href="https://slack.com/">Slack</a>
+                        <p>Check Slack</p>
+                    </div>
+                </div>
             </div>
             <footer>
-                <nav>
-                    <a href="#">Home</a>
-                    <a href="#">Employers</a>
-                    <a href="#">FAQ</a>
-                    <a href="#">Contact</a>
+                <nav class="footer-nav">
+                    <a href="https://devmountain.com/">Home</a>
+                    <a href="https://devmountain.com/employers">Employers</a>
+                    <a href="https://devmountain.com/faq">FAQ</a>
+                    <a href="https://devmountain.com/contact">Contact</a>
                 </nav>
             </footer>
         </main>
@@ -73,21 +87,11 @@
         <script src="./js/devCtrl.js"></script>
         <script src="./js/components/login/loginCtrl.js" charset="utf-8"></script>
         <script src="./js/components/auth/auth.service.js" charset="utf-8"></script>
-        <script src="./js/features/Questions/qCtrl.js" charset="utf-8"></script>
+        <script src="./js/features/Questions/questionsCtrl.js" charset="utf-8"></script>
         <script src="./js/features/oneQuestion/oneQuestionCtrl.js" charset="utf-8"></script>
         <script src="./js/features/Ask/askCtrl.js" charset="utf-8"></script>
+        <script src="./js/features/oneQuestion/answer/answer-dir-ctrl.js" charset="utf-8"></script>
         <script src="./js/devSvc.js" charset="utf-8"></script>
         <script src="./js/app.js" charset="utf-8"></script>
     </body>
 </html>
-<!-- <div class="search">
-    <input type="search" placeholder="Search Q &amp A">
-</div>
-<ul>
-  <li ng-if="!isAuthenticated">
-    <a ng-click="authService.login()">Log In</a>
-  </li>
-  <li ng-if="isAuthenticated">
-    <a ng-click="authService.logout()">Log Out</a>
-  </li>
-</ul> -->
