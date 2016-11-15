@@ -7,7 +7,7 @@ const app = express();
 const port = sessionConfig.port;
 const mongoUri = 'mongodb://localhost:27017/devFlow';
 
-app.use(bodyParser.json());
+app.use(bodyParser());
 app.use(express.static(`./public`))
 app.use(express.static(`${__dirname}/../node_modules`))
 app.use(session(sessionConfig.session))

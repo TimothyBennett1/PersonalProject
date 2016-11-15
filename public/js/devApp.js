@@ -25,12 +25,12 @@
               .state('home', {
                   url: '/',
                   controller: "qCtrl",
-                  templateUrl: './js/features/Questions/questionsTmpl.html'
+                  templateUrl: 'js/features/Questions/questionsTmpl.html'
               })
               .state('question', {
                   url: '/questions/:id',
                   controller: 'oneQuestion',
-                  templateUrl: './js/features/oneQuestion/oneQuestionTmpl.html'
+                  templateUrl: 'js/features/oneQuestion/oneQuestionTmpl.html'
               })
               .state('login', {
                   url: "/login",
@@ -38,7 +38,7 @@
               })
               .state("ask", {
                   url: "/ask",
-                  templateUrl: "js/features/Ask/askTmpl.html",
+                  templateUrl: "js/features/Ask/asktmpl.html",
                   controller: "askCtrl"
 
               })
